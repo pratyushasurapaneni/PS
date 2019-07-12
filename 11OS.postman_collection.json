@@ -1,0 +1,1016 @@
+{
+	"info": {
+		"_postman_id": "e4d7ff30-0212-40e1-a68c-a2768b9432d0",
+		"name": "11OS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "11OS - Enter Valid EmailAddress and LastName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49d57ab8-bee9-4354-8b9e-8dbfee1ee39e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"//tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== true;\r",
+							"console.log;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/{{11OS_Emailaddress}}/{{11OS_LastName}}",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"{{11OS_Emailaddress}}",
+						"{{11OS_LastName}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "11OS - Enter In valid EmailAddress and LastName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b9c84f9-aa11-4746-a806-73f07f0303c6",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== false;\r",
+							"console.log;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/pratyushasurapaneni/{{11OS_LastName}}",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"pratyushasurapaneni",
+						"{{11OS_LastName}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "11OS - Enter Valid EmailAddress and In Valid LastName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f61d246b-e49d-4b67-bd70-4139eb74c4c6",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== false;\r",
+							"console.log;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/{{11OS_Emailaddress}}/1234invalid",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"{{11OS_Emailaddress}}",
+						"1234invalid"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "11OS - Enter In valid EmailAddress and In Valid LastName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e878433-f90c-47cf-be04-390aadaa8ef7",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== false;\r",
+							"console.log;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/test123/invalidlastname",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"test123",
+						"invalidlastname"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "11OS - Enter Valid Email address and do not pass LastName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79ba9bca-5425-417d-a8a8-d39c8685538b",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/{{11OS_Emailaddress}}",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"{{11OS_Emailaddress}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "11OS - Enter Valid LastName and do not pass Email address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79ba9bca-5425-417d-a8a8-d39c8685538b",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/{{11OS_LastName}}",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"{{11OS_LastName}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "11OS - Enter EmailAddress and LastName after updating the contact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49d57ab8-bee9-4354-8b9e-8dbfee1ee39e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== false;\r",
+							"console.log;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/{{11OS_Emailaddress}}/{{11OS_LastName}}",
+					"protocol": "https",
+					"host": [
+						"rlh-orchestration-api-management-dev",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"api",
+						"orchestration",
+						"CheckMember",
+						"{{11OS_Emailaddress}}",
+						"{{11OS_LastName}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11OS- Positive flow with newly created Member",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/CheckMember/Nonactivated14519@example.com/Extrenal_Member_Profile_14519",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"CheckMember",
+								"Nonactivated14519@example.com",
+								"Extrenal_Member_Profile_14519"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		}
+	]
+}
