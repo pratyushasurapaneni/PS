@@ -304,7 +304,7 @@
 						"id": "f61d246b-e49d-4b67-bd70-4139eb74c4c6",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);\r",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"Status code is 200\"] = responseCode.code === ;\r",
 							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== false;\r",
 							"console.log;"
 						],
