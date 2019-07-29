@@ -1,0 +1,1023 @@
+{
+	"info": {
+		"_postman_id": "6b883008-b58c-41d1-a28f-a3631c66cd6a",
+		"name": "E2E",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EnrollMember",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f78c7599-dfbd-4e9a-8ae0-e5b8d8210430",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"/*postman.setGlobalVariable(\"EmailAddress\");\r",
+							"postman.setGlobalVariable(\"FirstName\");\r",
+							"postman.setGlobalVariable(\"LastName\");*/\r",
+							"\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");\r",
+							"tests[\"Has Content-Type\"] = contentTypeHeaderExists;\r",
+							"\r",
+							"console.log(data);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "789b0266-06b5-4d4f-a736-cc26eae8ff08",
+						"exec": [
+							"postman.setGlobalVariable(\"FirstName\",\"34555tgy\");",
+							"postman.setGlobalVariable(\"LastName\",\"456hhhh\");",
+							"postman.setGlobalVariable(\"EmailAddress\",\"145ggh31234@gmail.com\");",
+							"postman.setGlobalVariable(\"DOB\",\"07/07/1977\");",
+							"postman.setGlobalVariable(\"phonenumber\",\"1-480-152-4501\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rlhc_email\":\"{{EmailAddress}}\",\r\n  \"rlhc_firstname\":\"{{FirstName}}\",\r\n  \"rlhc_lastname\":\"{{LastName}}\",\r\n  \"rlhc_dateofbirth\":\"{{DOB}}\",\r\n  \"rlhc_address1\":\"Forrest Ray\",\r\n  \"rlhc_address2\":\"191-103 Integer Rd.\",\r\n  \"rlhc_city\":\"Albuquerque\",\r\n  \"rlhc_stateorprovince\":\"New Mexico\",\r\n  \"rlhc_country\":\"US\",\r\n  \"rlhc_source\":\"Redlion\",\r\n  \"rlhc_subsource\":\"RLH\",\r\n  \"rlhc_promotionalsignupcode\":\"SUMMERFUN\",\r\n  \"rlhc_zipcode\":\"08219\",\r\n  \"rlhc_phonenumber\":\"{{phonenumber}}\",\r\n  \"rlhc_donotallowsms\":\"FALSE\",\r\n  \"rlhc_donotemail\":\"TRUE\",\r\n  \"rlhc_donotpostalmail\":\"FALSE\",\r\n  \"rlhc_donotphone\":\"FALSE\",\r\n  \"rlhc_subscribetobra\":true,\r\n  \"rlhc_subscribetofra\":true,\r\n  \"rlhc_subscribetohot\":true,\r\n  \"rlhc_subscribetogrp\":true,\r\n  \"rlhc_subscribetoloy\":true,\r\n  \"rlhc_subscribetopno\":true\r\n}"
+				},
+				"url": {
+					"raw": "{{url-dev}}/EnrollMember",
+					"host": [
+						"{{url-dev}}"
+					],
+					"path": [
+						"EnrollMember"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "EnrollMember e2e",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"pratyushasurapaneni@gmail.com\",\r\n  \"rlhc_firstname\":\"Pratyusha\",\r\n  \"rlhc_lastname\":\"Reservation Test\",\r\n  \"rlhc_name\":\"NewE2E_User252019@newuser.com\",\r\n  \"rlhc_dobdayofmonth\":\"03\",\r\n  \"rlhc_dobmonth\":\"04\",\r\n  \"rlhc_dobyear\":\"1988\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 May 2019 08:24:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": {\n            \"statecode\": 0,\n            \"rlhc_donotallowsms\": false,\n            \"_rlhc_customerid_value\": \"9b901f7c-d77a-e911-a825-000d3a1780a6\",\n            \"rlhc_lastname\": \"Reservation Test\",\n            \"rlhc_firstname\": \"Pratyusha\",\n            \"rlhc_donotphone\": false,\n            \"rlhc_name\": \"NewE2E_User252019@newuser.com\",\n            \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"modifiedon\": \"2019-05-20T08:24:14Z\",\n            \"rlhc_donotpostalmail\": false,\n            \"versionnumber\": 8029659,\n            \"rlhc_cleansedemail\": \"pratyushasurapaneni@gmail.com\",\n            \"createdon\": \"2019-05-20T08:24:14Z\",\n            \"rlhc_donotsendmm\": false,\n            \"rlhc_cleansedfirstname\": \"Pratyusha\",\n            \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_donotemail\": false,\n            \"statuscode\": 1,\n            \"rlhc_externalprofileid\": \"473361a6-d87a-e911-a841-000d3a178370\",\n            \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n            \"rlhc_cleansedlastname\": \"Reservation Test\",\n            \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_email\": \"pratyushasurapaneni@gmail.com\",\n            \"rlhc_cleansedcountry\": null,\n            \"_createdonbehalfby_value\": null,\n            \"rlhc_importsource\": null,\n            \"rlhc_pmsnamecode\": null,\n            \"rlhc_stateorprovince\": null,\n            \"rlhc_jobtitle\": null,\n            \"rlhc_dobyear\": \"1988\",\n            \"rlhc_city\": null,\n            \"_modifiedonbehalfby_value\": null,\n            \"rlhc_pmsprofileid\": null,\n            \"rlhc_cleansedcity\": null,\n            \"rlhc_externalprofilenumber\": null,\n            \"overriddencreatedon\": null,\n            \"rlhc_vipcode\": null,\n            \"utcconversiontimezonecode\": null,\n            \"rlhc_dobmonth\": \"04\",\n            \"rlhc_zipcode\": null,\n            \"rlhc_freqflyernum\": null,\n            \"rlhc_middlename\": null,\n            \"rlhc_cleansedzipcode\": null,\n            \"rlhc_dobdayofmonth\": \"03\",\n            \"importsequencenumber\": null,\n            \"rlhc_arnumber\": null,\n            \"rlhc_address1\": null,\n            \"rlhc_primarylanguage\": null,\n            \"rlhc_cleansedstateorprovince\": null,\n            \"rlhc_familiarname\": null,\n            \"rlhc_sourceprofilenamecode\": null,\n            \"rlhc_cendynpropertyid\": null,\n            \"rlhc_companyname\": null,\n            \"rlhc_phonenumber\": null,\n            \"rlhc_address2\": null,\n            \"_owningteam_value\": null,\n            \"rlhc_cleansedaddress2\": null,\n            \"rlhc_vipid\": null,\n            \"rlhc_cleansedmiddlename\": null,\n            \"rlhc_profiletypeid\": null,\n            \"rlhc_resortid\": null,\n            \"rlhc_cleansedsalutation\": null,\n            \"rlhc_country\": null,\n            \"rlhc_profiletypecategory\": null,\n            \"rlhc_cleansedphonenumber\": null,\n            \"rlhc_sourceprofiletype\": null,\n            \"rlhc_cleansedaddress1\": null,\n            \"rlhc_externalprofilenumber2\": null,\n            \"rlhc_importsourceid\": null,\n            \"rlhc_profiletypecode\": null,\n            \"rlhc_salutation\": null,\n            \"rlhc_membershipnumber\": null,\n            \"timezoneruleversionnumber\": null\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"errorCode\\\":\\\"E0000001\\\",\\\"errorSummary\\\":\\\"Api validation failed: login\\\",\\\"errorLink\\\":\\\"E0000001\\\",\\\"errorId\\\":\\\"oaenD7RsnzETE2dqB_6h1wV3w\\\",\\\"errorCauses\\\":[{\\\"errorSummary\\\":\\\"login: An object with this field already exists in the current organization\\\"}]}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 400\n    },\n    {\n        \"value\": {\n            \"error\": \"There was some issue with Okta API\",\n            \"message\": {\n                \"value\": {\n                    \"statecode\": 0,\n                    \"rlhc_donotallowsms\": false,\n                    \"_rlhc_customerid_value\": \"9b901f7c-d77a-e911-a825-000d3a1780a6\",\n                    \"rlhc_lastname\": \"Reservation Test\",\n                    \"rlhc_firstname\": \"Pratyusha\",\n                    \"rlhc_donotphone\": false,\n                    \"rlhc_name\": \"NewE2E_User252019@newuser.com\",\n                    \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"modifiedon\": \"2019-05-20T08:24:14Z\",\n                    \"rlhc_donotpostalmail\": false,\n                    \"versionnumber\": 8029659,\n                    \"rlhc_cleansedemail\": \"pratyushasurapaneni@gmail.com\",\n                    \"createdon\": \"2019-05-20T08:24:14Z\",\n                    \"rlhc_donotsendmm\": false,\n                    \"rlhc_cleansedfirstname\": \"Pratyusha\",\n                    \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"rlhc_donotemail\": false,\n                    \"statuscode\": 1,\n                    \"rlhc_externalprofileid\": \"473361a6-d87a-e911-a841-000d3a178370\",\n                    \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n                    \"rlhc_cleansedlastname\": \"Reservation Test\",\n                    \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"rlhc_email\": \"pratyushasurapaneni@gmail.com\",\n                    \"rlhc_cleansedcountry\": null,\n                    \"_createdonbehalfby_value\": null,\n                    \"rlhc_importsource\": null,\n                    \"rlhc_pmsnamecode\": null,\n                    \"rlhc_stateorprovince\": null,\n                    \"rlhc_jobtitle\": null,\n                    \"rlhc_dobyear\": \"1988\",\n                    \"rlhc_city\": null,\n                    \"_modifiedonbehalfby_value\": null,\n                    \"rlhc_pmsprofileid\": null,\n                    \"rlhc_cleansedcity\": null,\n                    \"rlhc_externalprofilenumber\": null,\n                    \"overriddencreatedon\": null,\n                    \"rlhc_vipcode\": null,\n                    \"utcconversiontimezonecode\": null,\n                    \"rlhc_dobmonth\": \"04\",\n                    \"rlhc_zipcode\": null,\n                    \"rlhc_freqflyernum\": null,\n                    \"rlhc_middlename\": null,\n                    \"rlhc_cleansedzipcode\": null,\n                    \"rlhc_dobdayofmonth\": \"03\",\n                    \"importsequencenumber\": null,\n                    \"rlhc_arnumber\": null,\n                    \"rlhc_address1\": null,\n                    \"rlhc_primarylanguage\": null,\n                    \"rlhc_cleansedstateorprovince\": null,\n                    \"rlhc_familiarname\": null,\n                    \"rlhc_sourceprofilenamecode\": null,\n                    \"rlhc_cendynpropertyid\": null,\n                    \"rlhc_companyname\": null,\n                    \"rlhc_phonenumber\": null,\n                    \"rlhc_address2\": null,\n                    \"_owningteam_value\": null,\n                    \"rlhc_cleansedaddress2\": null,\n                    \"rlhc_vipid\": null,\n                    \"rlhc_cleansedmiddlename\": null,\n                    \"rlhc_profiletypeid\": null,\n                    \"rlhc_resortid\": null,\n                    \"rlhc_cleansedsalutation\": null,\n                    \"rlhc_country\": null,\n                    \"rlhc_profiletypecategory\": null,\n                    \"rlhc_cleansedphonenumber\": null,\n                    \"rlhc_sourceprofiletype\": null,\n                    \"rlhc_cleansedaddress1\": null,\n                    \"rlhc_externalprofilenumber2\": null,\n                    \"rlhc_importsourceid\": null,\n                    \"rlhc_profiletypecode\": null,\n                    \"rlhc_salutation\": null,\n                    \"rlhc_membershipnumber\": null,\n                    \"timezoneruleversionnumber\": null\n                },\n                \"formatters\": [],\n                \"contentTypes\": [],\n                \"declaredType\": null,\n                \"statusCode\": 200\n            }\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 400\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				},
+				{
+					"name": "EnrollMember_Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"\",\r\n  \"rlhc_firstname\":\"Member_Enroll_14519\",\r\n  \"rlhc_lastname\":\"Extrenal_Member_Profile_14519\",\r\n  \"rlhc_name\":\"External_Member_Profile_1459\",\r\n  \"rlhc_dobdayofmonth\":\"03\",\r\n  \"rlhc_dobmonth\":\"04\",\r\n  \"rlhc_dobyear\":\"1988\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:01:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "There was some issue with Enroll Member API"
+				},
+				{
+					"name": "EnrollMember_Positive Flow",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"Nonactivated14519@example.com\",\r\n  \"rlhc_firstname\":\"Member_Enroll_14519\",\r\n  \"rlhc_lastname\":\"Extrenal_Member_Profile_14519\",\r\n  \"rlhc_name\":\"External_Member_Profile_1459\",\r\n  \"rlhc_dobdayofmonth\":\"03\",\r\n  \"rlhc_dobmonth\":\"04\",\r\n  \"rlhc_dobyear\":\"1988\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 09:57:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": {\n            \"statecode\": 0,\n            \"rlhc_donotallowsms\": false,\n            \"_rlhc_customerid_value\": \"75f4b2b2-2e76-e911-a838-000d3a178672\",\n            \"rlhc_lastname\": \"Extrenal_Member_Profile_14519\",\n            \"rlhc_firstname\": \"Member_Enroll_14519\",\n            \"rlhc_donotphone\": false,\n            \"rlhc_name\": \"External_Member_Profile_1459\",\n            \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"modifiedon\": \"2019-05-14T09:57:45Z\",\n            \"rlhc_donotpostalmail\": false,\n            \"versionnumber\": 6903377,\n            \"rlhc_cleansedemail\": \"Nonactivated14519@example.com\",\n            \"createdon\": \"2019-05-14T09:57:44Z\",\n            \"rlhc_donotsendmm\": false,\n            \"rlhc_cleansedfirstname\": \"Member_Enroll_14519\",\n            \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_donotemail\": false,\n            \"statuscode\": 1,\n            \"rlhc_externalprofileid\": \"72f4b2b2-2e76-e911-a838-000d3a178672\",\n            \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n            \"rlhc_cleansedlastname\": \"Extrenal_Member_Profile_14519\",\n            \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_email\": \"Nonactivated14519@example.com\",\n            \"rlhc_cleansedcountry\": null,\n            \"_createdonbehalfby_value\": null,\n            \"rlhc_importsource\": null,\n            \"rlhc_pmsnamecode\": null,\n            \"rlhc_stateorprovince\": null,\n            \"rlhc_jobtitle\": null,\n            \"rlhc_dobyear\": \"1988\",\n            \"rlhc_city\": null,\n            \"_modifiedonbehalfby_value\": null,\n            \"rlhc_pmsprofileid\": null,\n            \"rlhc_cleansedcity\": null,\n            \"rlhc_externalprofilenumber\": null,\n            \"overriddencreatedon\": null,\n            \"rlhc_vipcode\": null,\n            \"utcconversiontimezonecode\": null,\n            \"rlhc_dobmonth\": \"04\",\n            \"rlhc_zipcode\": null,\n            \"rlhc_freqflyernum\": null,\n            \"rlhc_middlename\": null,\n            \"rlhc_cleansedzipcode\": null,\n            \"rlhc_dobdayofmonth\": \"03\",\n            \"importsequencenumber\": null,\n            \"rlhc_arnumber\": null,\n            \"rlhc_address1\": null,\n            \"rlhc_primarylanguage\": null,\n            \"rlhc_cleansedstateorprovince\": null,\n            \"rlhc_familiarname\": null,\n            \"rlhc_sourceprofilenamecode\": null,\n            \"rlhc_cendynpropertyid\": null,\n            \"rlhc_companyname\": null,\n            \"rlhc_phonenumber\": null,\n            \"rlhc_address2\": null,\n            \"_owningteam_value\": null,\n            \"rlhc_cleansedaddress2\": null,\n            \"rlhc_vipid\": null,\n            \"rlhc_cleansedmiddlename\": null,\n            \"rlhc_profiletypeid\": null,\n            \"rlhc_resortid\": null,\n            \"rlhc_cleansedsalutation\": null,\n            \"rlhc_country\": null,\n            \"rlhc_profiletypecategory\": null,\n            \"rlhc_cleansedphonenumber\": null,\n            \"rlhc_sourceprofiletype\": null,\n            \"rlhc_cleansedaddress1\": null,\n            \"rlhc_externalprofilenumber2\": null,\n            \"rlhc_importsourceid\": null,\n            \"rlhc_profiletypecode\": null,\n            \"rlhc_salutation\": null,\n            \"rlhc_membershipnumber\": null,\n            \"timezoneruleversionnumber\": null\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ContactFetch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0e590d8-9fd4-4efa-85b2-38dccd90aa6b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"ContactID\", jsonData[0].value[0].contactid);\r",
+							"postman.setGlobalVariable(\"OktaID\", jsonData[0].value[0].rlhc_oktaid);\r",
+							"potman.setGlobalVariable(\"MyCheckID\",jsonData[0].value[0].rlhc_mycheckid);\r",
+							"\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");\r",
+							"tests[\"Has Content-Type\"] = contentTypeHeaderExists;\r",
+							"\r",
+							"if (contentTypeHeaderExists) {\r",
+							"    tests[\"Content-Type is application/json\"] = responseHeaders[\"Content-Type\"].has(\"application/json\");\r",
+							"}\r",
+							"\r",
+							"//Tests\r",
+							"\r",
+							"tests[\"Email Address is available\"] = responseBody.has(\"emailaddress1\");\r",
+							"tests[\"First Name is available\"] = responseBody.has(\"firstname\");\r",
+							"tests[\"Last Name is available\"] = responseBody.has(\"lastname\");\r",
+							"tests[\"OKTA ID is available\"] = responseBody.has(\"rlhc_oktaid\");\r",
+							"tests[\"MyCheck ID is available\"] = responseBody.has(\"rlhc_mycheckid\");\r",
+							"tests[\"ContactID is available\"]=responseBody.has(\"contactid\");\r",
+							"\r",
+							"//Assertions\r",
+							"\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0].value[0].firstname === postman.getGlobalVariable(\"FirstName\");\r",
+							"tests[\"Assertion-lastname is set for the profile\"] = jsonData[0].value[0].lastname === postman.getGlobalVariable(\"LastName\");\r",
+							"tests[\"Assertion-email is set for the profile\"] = jsonData[0].value[0].emailaddress1 === postman.getGlobalVariable(\"EmailAddress\");\r",
+							"tests[\"Assertion-ContactID is set for the profile\"] = jsonData[0].value[0].contactid === postman.getGlobalVariable(\"ContactID\");\r",
+							"test[\"Assertion-OKTA ID is set for the profile\"] = jsonData[0].value[0].rlhc_oktaid === postman.getGlobalVariable(\"OktaID\");\r",
+							"test[\"Assertion-MyCheck ID is set for the profile\"] = jsonData[0].value[0].rlhc_mycheckid === postman.getGlobalVariable(\"MyCheckID\");\r",
+							"\r",
+							"console.log(data);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url-dev}}/ContactFetch?emailaddress1={{EmailAddress}}",
+					"host": [
+						"{{url-dev}}"
+					],
+					"path": [
+						"ContactFetch"
+					],
+					"query": [
+						{
+							"key": "emailaddress1",
+							"value": "{{EmailAddress}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ContactFetch",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url-dev}}/ContactFetch?emailaddress1=Nonactivated01@example.com&firstname=Redlion_First_01&lastname=Extrenal_Profile_01",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"ContactFetch"
+							],
+							"query": [
+								{
+									"key": "emailaddress1",
+									"value": "Nonactivated01@example.com"
+								},
+								{
+									"key": "firstname",
+									"value": "Redlion_First_01"
+								},
+								{
+									"key": "lastname",
+									"value": "Extrenal_Profile_01"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 11:14:40 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": [\n            {\n                \"customertypecode\": 1,\n                \"address2_addresstypecode\": 1,\n                \"merged\": false,\n                \"gendercode\": null,\n                \"territorycode\": 1,\n                \"emailaddress1\": \"Nonactivated01@example.com\",\n                \"haschildrencode\": 1,\n                \"preferredappointmenttimecode\": 1,\n                \"msdyn_orgchangestatus\": 0,\n                \"isbackofficecustomer\": false,\n                \"modifiedon\": \"2019-05-14T11:03:18Z\",\n                \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                \"rlhc_hasduplicates\": false,\n                \"donotpostalmail\": false,\n                \"marketingonly\": false,\n                \"donotphone\": false,\n                \"rlhc_isactivemember\": false,\n                \"educationcode\": 1,\n                \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                \"customersizecode\": 1,\n                \"firstname\": \"Redlion_First_01\",\n                \"yomifullname\": \"Redlion_First_01 Extrenal_Profile_01\",\n                \"donotemail\": false,\n                \"address2_shippingmethodcode\": 1,\n                \"fullname\": \"Redlion_First_01 Extrenal_Profile_01\",\n                \"address1_addressid\": \"7c0d18fe-9f48-4217-8654-2e2ca4741f09\",\n                \"msdyn_gdproptout\": false,\n                \"address2_freighttermscode\": 1,\n                \"statuscode\": 1,\n                \"createdon\": \"2019-05-14T11:03:18Z\",\n                \"lastname\": \"Extrenal_Profile_01\",\n                \"donotsendmm\": false,\n                \"donotfax\": false,\n                \"leadsourcecode\": 1,\n                \"versionnumber\": 7248473,\n                \"followemail\": true,\n                \"creditonhold\": false,\n                \"rlhc_employee\": false,\n                \"address3_addressid\": \"b7d53016-2440-455e-9024-c52df31cc1f4\",\n                \"preferredcontactmethodcode\": 1,\n                \"donotbulkemail\": false,\n                \"rlhc_meetingplanner\": false,\n                \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                \"donotbulkpostalmail\": false,\n                \"contactid\": \"4724badd-3776-e911-a838-000d3a178672\",\n                \"participatesinworkflow\": false,\n                \"statecode\": 0,\n                \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n                \"address2_addressid\": \"71f3c885-d556-4655-9b9d-28c4402d5c80\",\n                \"shippingmethodcode\": 1,\n                \"onholdtime\": null,\n                \"rlhc_membertype\": null,\n                \"address3_latitude\": null,\n                \"address1_longitude\": null,\n                \"address2_name\": null,\n                \"anniversary\": null,\n                \"governmentid\": null,\n                \"assistantname\": null,\n                \"rlhc_linkedinid\": null,\n                \"creditlimit\": null,\n                \"rlhc_datasubsource\": null,\n                \"aging60\": null,\n                \"entityimage\": null,\n                \"_modifiedbyexternalparty_value\": null,\n                \"address2_line3\": null,\n                \"suffix\": null,\n                \"exchangerate\": 1,\n                \"annualincome_base\": null,\n                \"address2_longitude\": null,\n                \"address1_latitude\": null,\n                \"address1_addresstypecode\": null,\n                \"middlename\": null,\n                \"address2_county\": null,\n                \"rlhc_memberlevel\": null,\n                \"birthdate\": null,\n                \"subscriptionid\": null,\n                \"processid\": null,\n                \"address2_latitude\": null,\n                \"_parentcustomerid_value\": null,\n                \"address3_telephone2\": null,\n                \"address3_line2\": null,\n                \"address2_telephone1\": null,\n                \"address2_upszone\": null,\n                \"traversedpath\": null,\n                \"pager\": null,\n                \"aging90\": null,\n                \"address3_line3\": null,\n                \"_transactioncurrencyid_value\": \"cb8f6edc-3930-e911-a95e-000d3a4e898a\",\n                \"rlhc_membershipstatus\": null,\n                \"emailaddress3\": null,\n                \"address1_county\": null,\n                \"_masterid_value\": null,\n                \"aging90_base\": null,\n                \"paymenttermscode\": null,\n                \"_preferredserviceid_value\": null,\n                \"address2_primarycontactname\": null,\n                \"address2_composite\": null,\n                \"salutation\": null,\n                \"address1_primarycontactname\": null,\n                \"address2_utcoffset\": null,\n                \"websiteurl\": null,\n                \"employeeid\": null,\n                \"rlhc_microsoftid\": null,\n                \"timespentbymeonemailandmeetings\": null,\n                \"entityimage_url\": null,\n                \"address3_shippingmethodcode\": null,\n                \"ftpsiteurl\": null,\n                \"address1_name\": null,\n                \"address1_line2\": null,\n                \"address1_fax\": null,\n                \"rlhc_facebookid\": null,\n                \"lastusedincampaign\": null,\n                \"yomifirstname\": null,\n                \"callback\": null,\n                \"address3_fax\": null,\n                \"address1_composite\": null,\n                \"address2_line1\": null,\n                \"address3_primarycontactname\": null,\n                \"rlhc_externalprofileid\": null,\n                \"_parentcontactid_value\": null,\n                \"mobilephone\": null,\n                \"_createdonbehalfby_value\": null,\n                \"rlhc_enrollmentsource\": null,\n                \"address1_telephone1\": null,\n                \"jobtitle\": null,\n                \"address3_addresstypecode\": null,\n                \"address1_stateorprovince\": null,\n                \"address1_telephone2\": null,\n                \"yomilastname\": null,\n                \"entityimageid\": null,\n                \"preferredappointmentdaycode\": null,\n                \"aging30_base\": null,\n                \"address3_line1\": null,\n                \"_slaid_value\": null,\n                \"address1_line1\": null,\n                \"nickname\": null,\n                \"childrensnames\": null,\n                \"_preferredequipmentid_value\": null,\n                \"rlhc_googleid\": null,\n                \"_owningteam_value\": null,\n                \"_accountid_value\": null,\n                \"address1_freighttermscode\": null,\n                \"address1_city\": null,\n                \"rlhc_enrollmentsubsource\": null,\n                \"address1_utcoffset\": null,\n                \"address2_telephone2\": null,\n                \"annualincome\": null,\n                \"yomimiddlename\": null,\n                \"stageid\": null,\n                \"numberofchildren\": null,\n                \"_originatingleadid_value\": null,\n                \"telephone1\": null,\n                \"address2_telephone3\": null,\n                \"address2_stateorprovince\": null,\n                \"accountrolecode\": null,\n                \"assistantphone\": null,\n                \"rlhc_vipstatus\": null,\n                \"aging30\": null,\n                \"address3_name\": null,\n                \"address2_country\": null,\n                \"address1_upszone\": null,\n                \"telephone2\": null,\n                \"rlhc_dmacode\": null,\n                \"address1_postalcode\": null,\n                \"address1_telephone3\": null,\n                \"fax\": null,\n                \"address3_telephone1\": null,\n                \"address3_postofficebox\": null,\n                \"address2_postofficebox\": null,\n                \"utcconversiontimezonecode\": null,\n                \"telephone3\": null,\n                \"lastonholdtime\": null,\n                \"address1_country\": null,\n                \"address1_line3\": null,\n                \"rlhc_oktaid\": null,\n                \"rlhc_pmsprofilelastmodifiedon\": null,\n                \"rlhc_mycheckid\": null,\n                \"rlhc_mycheckbalance\": 0,\n                \"_preferredsystemuserid_value\": null,\n                \"address3_county\": null,\n                \"rlhc_datasource\": null,\n                \"_modifiedonbehalfby_value\": null,\n                \"externaluseridentifier\": null,\n                \"description\": null,\n                \"rlhc_membernumber\": null,\n                \"company\": null,\n                \"address2_postalcode\": null,\n                \"emailaddress2\": null,\n                \"timezoneruleversionnumber\": null,\n                \"address2_fax\": null,\n                \"importsequencenumber\": null,\n                \"overriddencreatedon\": null,\n                \"_slainvokedid_value\": null,\n                \"managername\": null,\n                \"address3_telephone3\": null,\n                \"address3_stateorprovince\": null,\n                \"spousesname\": null,\n                \"department\": null,\n                \"business2\": null,\n                \"creditlimit_base\": null,\n                \"managerphone\": null,\n                \"aging60_base\": null,\n                \"_defaultpricelevelid_value\": null,\n                \"address3_composite\": null,\n                \"rlhc_enrollmentdate\": null,\n                \"rlhc_identityproviderusername\": null,\n                \"address2_city\": null,\n                \"familystatuscode\": null,\n                \"entityimage_timestamp\": null,\n                \"address3_freighttermscode\": null,\n                \"address3_city\": null,\n                \"address1_postofficebox\": null,\n                \"rlhc_donotsendsms\": false,\n                \"_createdbyexternalparty_value\": null,\n                \"address3_upszone\": null,\n                \"home2\": null,\n                \"address3_postalcode\": null,\n                \"address1_shippingmethodcode\": null,\n                \"address3_country\": null,\n                \"address3_utcoffset\": null,\n                \"address2_line2\": null,\n                \"address3_longitude\": null\n            }\n        ],\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "FetchContactby PhoneNumber-BlueIP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9f5b0c2-0035-4efe-8a5e-c7d5eaa5283e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");\r",
+							"tests[\"Has Content-Type\"] = contentTypeHeaderExists;\r",
+							"\r",
+							"if (contentTypeHeaderExists) {\r",
+							"    tests[\"Content-Type is application/json\"] = responseHeaders[\"Content-Type\"].has(\"application/json\");\r",
+							"}\r",
+							"\r",
+							"//Tests\r",
+							"\r",
+							"tests[\"Email Address is available\"] = responseBody.has(\"emailaddress1\");\r",
+							"tests[\"First Name is available\"] = responseBody.has(\"firstname\");\r",
+							"tests[\"Last Name is available\"] = responseBody.has(\"lastname\");\r",
+							"test[\"Phonenumber is available\"]=responseBody.has(\"phone\");\r",
+							"\r",
+							"//Assertions\r",
+							"\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData.value.count[1].profileDetails[0].first_name === postman.getGlobalVariable(\"FirstName\");\r",
+							"tests[\"Assertion-lastname is set for the profile\"] = jsonData.value.count[1].profileDetails[0].last_name === postman.getGlobalVariable(\"LastName\");\r",
+							"tests[\"Assertion-email is set for the profile\"] = jsonData.value.count[1].profileDetails[0].email === postman.getGlobalVariable(\"EmailAddress\");\r",
+							"test[\"Assertion-phonenumber\"] = jsonData.value.count[1].profileDetails[0].phone === postman.getGlobalVariable(\"phonenumber\");\r",
+							"console.log(data);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url-dev}}/FetchContactByPhone?mobileNumber={{phonenumber}}",
+					"host": [
+						"{{url-dev}}"
+					],
+					"path": [
+						"FetchContactByPhone"
+					],
+					"query": [
+						{
+							"key": "mobileNumber",
+							"value": "{{phonenumber}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Valid Scenario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/FetchContactByPhone?mobileNumber=1-720-2414615",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"FetchContactByPhone"
+							],
+							"query": [
+								{
+									"key": "mobileNumber",
+									"value": "1-720-2414615"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2019 07:56:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": [\n            {\n                \"first_name\": \"Pratyusha\",\n                \"last_name\": \"Surapaneni\",\n                \"address1\": \"249 Alexander Pl.\",\n                \"address2\": \"Street\",\n                \"city\": \"Chicago\",\n                \"state\": \"Illinois\",\n                \"zip\": null,\n                \"country_code\": \"US\",\n                \"date_of_birth\": \"1988-03-04\",\n                \"gender\": \"\",\n                \"email\": \"pratyushasurapaneni@gmail.com\",\n                \"phone\": \"1-720-2414615\",\n                \"doNotCall\": false,\n                \"doNotMail\": false,\n                \"doNotEmail\": false,\n                \"doNotSendSMS\": false,\n                \"subscriptions\": [],\n                \"reservations\": {\n                    \"count\": 4,\n                    \"data\": [\n                        {\n                            \"arrival\": \"\",\n                            \"departure\": \"\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": null,\n                            \"pms_property_code\": null,\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"\",\n                            \"departure\": \"\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": null,\n                            \"pms_property_code\": null,\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"\",\n                            \"departure\": \"\",\n                            \"crs_reservation_id\": \"1245\",\n                            \"pms_confirmation_number\": null,\n                            \"pms_property_code\": \"3453\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"\",\n                            \"departure\": \"\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": null,\n                            \"pms_property_code\": null,\n                            \"pms_property_name\": null\n                        }\n                    ]\n                },\n                \"stays\": {\n                    \"count\": 0,\n                    \"data\": []\n                },\n                \"perks\": {\n                    \"count\": 0,\n                    \"rewards\": []\n                },\n                \"survey\": {\n                    \"questions\": []\n                }\n            }\n        ],\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "FetchContactby Okta_Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d92bb3e-35a8-4d99-85b7-3999d3250c9f",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"potman.setGlobalVariable(\"hellobucks\",jsonData[0].value[0].hellobucks);\r",
+							"\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");\r",
+							"tests[\"Has Content-Type\"] = contentTypeHeaderExists;\r",
+							"\r",
+							"if (contentTypeHeaderExists) {\r",
+							"    tests[\"Content-Type is application/json\"] = responseHeaders[\"Content-Type\"].has(\"application/json\");\r",
+							"}\r",
+							"\r",
+							"//Tests\r",
+							"\r",
+							"tests[\"Email Address is available\"] = responseBody.has(\"emailaddress1\");\r",
+							"tests[\"First Name is available\"] = responseBody.has(\"first_name\");\r",
+							"tests[\"Last Name is available\"] = responseBody.has(\"last_name\");\r",
+							"test[\"Phonenumber is available\"]=responseBody.has(\"phone\");\r",
+							"test[\"Email is available\"]=responseBody.has(\"email\");\r",
+							"\r",
+							"//Assertions\r",
+							"\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData.value[0].first_name === postman.getGlobalVariable(\"FirstName\");\r",
+							"tests[\"Assertion-lastname is set for the profile\"] = jsonData.value[0].last_name === postman.getGlobalVariable(\"LastName\");\r",
+							"tests[\"Assertion-email is set for the profile\"] = jsonData.value[0].email === postman.getGlobalVariable(\"EmailAddress\");\r",
+							"test[\"Assertion-phonenumber is set for the profile\"] = jsonData.value[0].phone === postman.getGlobalVariable(\"phonenumber\");\r",
+							"test[\"Assertion-hellobucks is set for the profile\"] = jsonData.value[0].hellobucks === postman.getGlobalVariable(\"hellobucks\");\r",
+							"console.log(data);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url-dev}}/FetchContactByOktaid/00umk3nea2YcqsZM00h7",
+					"host": [
+						"{{url-dev}}"
+					],
+					"path": [
+						"FetchContactByOktaid",
+						"00umk3nea2YcqsZM00h7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fullinfo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/FetchContactByOktaid/00u2zevqsmY2EYV4c2p7",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"FetchContactByOktaid",
+								"00u2zevqsmY2EYV4c2p7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 May 2019 12:21:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": [\n            {\n                \"first_name\": \"Christen\",\n                \"last_name\": \"Thompson\",\n                \"address1\": null,\n                \"address2\": null,\n                \"city\": null,\n                \"state\": null,\n                \"zip\": null,\n                \"country_code\": null,\n                \"date_of_birth\": null,\n                \"gender\": \"\",\n                \"email\": \"chris26@juno.com\",\n                \"phone\": null,\n                \"doNotCall\": true,\n                \"doNotMail\": false,\n                \"doNotEmail\": false,\n                \"doNotSendSMS\": true,\n                \"subscriptions\": [],\n                \"reservations\": {\n                    \"count\": 9,\n                    \"data\": [\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRF8U\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJF\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJJ\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJM\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJT\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJ1\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJE\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"2/1/2019 12:00:00 AM\",\n                            \"departure\": \"2/3/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": \"4U8ZBRFJV\",\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        },\n                        {\n                            \"arrival\": \"5/18/2019 12:00:00 AM\",\n                            \"departure\": \"5/21/2019 12:00:00 AM\",\n                            \"crs_reservation_id\": \"12345\",\n                            \"pms_confirmation_number\": null,\n                            \"pms_property_code\": \"CAREDD\",\n                            \"pms_property_name\": null\n                        }\n                    ]\n                },\n                \"stays\": {\n                    \"count\": 1,\n                    \"data\": [\n                        {\n                            \"arrival\": \"2019-05-14T00:00:00Z\",\n                            \"departure\": null,\n                            \"crs_reservation_id\": null,\n                            \"pms_confirmation_number\": null,\n                            \"pms_property_code\": null,\n                            \"pms_property_name\": null\n                        }\n                    ]\n                },\n                \"perks\": {\n                    \"count\": 0,\n                    \"rewards\": []\n                },\n                \"survey\": {\n                    \"questions\": []\n                }\n            }\n        ],\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Mycheck and Hello bucks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url-dev}}/ApplyHelloBucks?amount=80&user_id={{MyCheckID}}&expiration_date=2019-10-17 15:19:37",
+					"host": [
+						"{{url-dev}}"
+					],
+					"path": [
+						"ApplyHelloBucks"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "80"
+						},
+						{
+							"key": "user_id",
+							"value": "{{MyCheckID}}"
+						},
+						{
+							"key": "expiration_date",
+							"value": "2019-10-17 15:19:37"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "EnrollMember e2e",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"pratyushasurapaneni@gmail.com\",\r\n  \"rlhc_firstname\":\"Pratyusha\",\r\n  \"rlhc_lastname\":\"Reservation Test\",\r\n  \"rlhc_name\":\"NewE2E_User252019@newuser.com\",\r\n  \"rlhc_dobdayofmonth\":\"03\",\r\n  \"rlhc_dobmonth\":\"04\",\r\n  \"rlhc_dobyear\":\"1988\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 May 2019 08:24:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": {\n            \"statecode\": 0,\n            \"rlhc_donotallowsms\": false,\n            \"_rlhc_customerid_value\": \"9b901f7c-d77a-e911-a825-000d3a1780a6\",\n            \"rlhc_lastname\": \"Reservation Test\",\n            \"rlhc_firstname\": \"Pratyusha\",\n            \"rlhc_donotphone\": false,\n            \"rlhc_name\": \"NewE2E_User252019@newuser.com\",\n            \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"modifiedon\": \"2019-05-20T08:24:14Z\",\n            \"rlhc_donotpostalmail\": false,\n            \"versionnumber\": 8029659,\n            \"rlhc_cleansedemail\": \"pratyushasurapaneni@gmail.com\",\n            \"createdon\": \"2019-05-20T08:24:14Z\",\n            \"rlhc_donotsendmm\": false,\n            \"rlhc_cleansedfirstname\": \"Pratyusha\",\n            \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_donotemail\": false,\n            \"statuscode\": 1,\n            \"rlhc_externalprofileid\": \"473361a6-d87a-e911-a841-000d3a178370\",\n            \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n            \"rlhc_cleansedlastname\": \"Reservation Test\",\n            \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_email\": \"pratyushasurapaneni@gmail.com\",\n            \"rlhc_cleansedcountry\": null,\n            \"_createdonbehalfby_value\": null,\n            \"rlhc_importsource\": null,\n            \"rlhc_pmsnamecode\": null,\n            \"rlhc_stateorprovince\": null,\n            \"rlhc_jobtitle\": null,\n            \"rlhc_dobyear\": \"1988\",\n            \"rlhc_city\": null,\n            \"_modifiedonbehalfby_value\": null,\n            \"rlhc_pmsprofileid\": null,\n            \"rlhc_cleansedcity\": null,\n            \"rlhc_externalprofilenumber\": null,\n            \"overriddencreatedon\": null,\n            \"rlhc_vipcode\": null,\n            \"utcconversiontimezonecode\": null,\n            \"rlhc_dobmonth\": \"04\",\n            \"rlhc_zipcode\": null,\n            \"rlhc_freqflyernum\": null,\n            \"rlhc_middlename\": null,\n            \"rlhc_cleansedzipcode\": null,\n            \"rlhc_dobdayofmonth\": \"03\",\n            \"importsequencenumber\": null,\n            \"rlhc_arnumber\": null,\n            \"rlhc_address1\": null,\n            \"rlhc_primarylanguage\": null,\n            \"rlhc_cleansedstateorprovince\": null,\n            \"rlhc_familiarname\": null,\n            \"rlhc_sourceprofilenamecode\": null,\n            \"rlhc_cendynpropertyid\": null,\n            \"rlhc_companyname\": null,\n            \"rlhc_phonenumber\": null,\n            \"rlhc_address2\": null,\n            \"_owningteam_value\": null,\n            \"rlhc_cleansedaddress2\": null,\n            \"rlhc_vipid\": null,\n            \"rlhc_cleansedmiddlename\": null,\n            \"rlhc_profiletypeid\": null,\n            \"rlhc_resortid\": null,\n            \"rlhc_cleansedsalutation\": null,\n            \"rlhc_country\": null,\n            \"rlhc_profiletypecategory\": null,\n            \"rlhc_cleansedphonenumber\": null,\n            \"rlhc_sourceprofiletype\": null,\n            \"rlhc_cleansedaddress1\": null,\n            \"rlhc_externalprofilenumber2\": null,\n            \"rlhc_importsourceid\": null,\n            \"rlhc_profiletypecode\": null,\n            \"rlhc_salutation\": null,\n            \"rlhc_membershipnumber\": null,\n            \"timezoneruleversionnumber\": null\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"errorCode\\\":\\\"E0000001\\\",\\\"errorSummary\\\":\\\"Api validation failed: login\\\",\\\"errorLink\\\":\\\"E0000001\\\",\\\"errorId\\\":\\\"oaenD7RsnzETE2dqB_6h1wV3w\\\",\\\"errorCauses\\\":[{\\\"errorSummary\\\":\\\"login: An object with this field already exists in the current organization\\\"}]}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 400\n    },\n    {\n        \"value\": {\n            \"error\": \"There was some issue with Okta API\",\n            \"message\": {\n                \"value\": {\n                    \"statecode\": 0,\n                    \"rlhc_donotallowsms\": false,\n                    \"_rlhc_customerid_value\": \"9b901f7c-d77a-e911-a825-000d3a1780a6\",\n                    \"rlhc_lastname\": \"Reservation Test\",\n                    \"rlhc_firstname\": \"Pratyusha\",\n                    \"rlhc_donotphone\": false,\n                    \"rlhc_name\": \"NewE2E_User252019@newuser.com\",\n                    \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"modifiedon\": \"2019-05-20T08:24:14Z\",\n                    \"rlhc_donotpostalmail\": false,\n                    \"versionnumber\": 8029659,\n                    \"rlhc_cleansedemail\": \"pratyushasurapaneni@gmail.com\",\n                    \"createdon\": \"2019-05-20T08:24:14Z\",\n                    \"rlhc_donotsendmm\": false,\n                    \"rlhc_cleansedfirstname\": \"Pratyusha\",\n                    \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"rlhc_donotemail\": false,\n                    \"statuscode\": 1,\n                    \"rlhc_externalprofileid\": \"473361a6-d87a-e911-a841-000d3a178370\",\n                    \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n                    \"rlhc_cleansedlastname\": \"Reservation Test\",\n                    \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n                    \"rlhc_email\": \"pratyushasurapaneni@gmail.com\",\n                    \"rlhc_cleansedcountry\": null,\n                    \"_createdonbehalfby_value\": null,\n                    \"rlhc_importsource\": null,\n                    \"rlhc_pmsnamecode\": null,\n                    \"rlhc_stateorprovince\": null,\n                    \"rlhc_jobtitle\": null,\n                    \"rlhc_dobyear\": \"1988\",\n                    \"rlhc_city\": null,\n                    \"_modifiedonbehalfby_value\": null,\n                    \"rlhc_pmsprofileid\": null,\n                    \"rlhc_cleansedcity\": null,\n                    \"rlhc_externalprofilenumber\": null,\n                    \"overriddencreatedon\": null,\n                    \"rlhc_vipcode\": null,\n                    \"utcconversiontimezonecode\": null,\n                    \"rlhc_dobmonth\": \"04\",\n                    \"rlhc_zipcode\": null,\n                    \"rlhc_freqflyernum\": null,\n                    \"rlhc_middlename\": null,\n                    \"rlhc_cleansedzipcode\": null,\n                    \"rlhc_dobdayofmonth\": \"03\",\n                    \"importsequencenumber\": null,\n                    \"rlhc_arnumber\": null,\n                    \"rlhc_address1\": null,\n                    \"rlhc_primarylanguage\": null,\n                    \"rlhc_cleansedstateorprovince\": null,\n                    \"rlhc_familiarname\": null,\n                    \"rlhc_sourceprofilenamecode\": null,\n                    \"rlhc_cendynpropertyid\": null,\n                    \"rlhc_companyname\": null,\n                    \"rlhc_phonenumber\": null,\n                    \"rlhc_address2\": null,\n                    \"_owningteam_value\": null,\n                    \"rlhc_cleansedaddress2\": null,\n                    \"rlhc_vipid\": null,\n                    \"rlhc_cleansedmiddlename\": null,\n                    \"rlhc_profiletypeid\": null,\n                    \"rlhc_resortid\": null,\n                    \"rlhc_cleansedsalutation\": null,\n                    \"rlhc_country\": null,\n                    \"rlhc_profiletypecategory\": null,\n                    \"rlhc_cleansedphonenumber\": null,\n                    \"rlhc_sourceprofiletype\": null,\n                    \"rlhc_cleansedaddress1\": null,\n                    \"rlhc_externalprofilenumber2\": null,\n                    \"rlhc_importsourceid\": null,\n                    \"rlhc_profiletypecode\": null,\n                    \"rlhc_salutation\": null,\n                    \"rlhc_membershipnumber\": null,\n                    \"timezoneruleversionnumber\": null\n                },\n                \"formatters\": [],\n                \"contentTypes\": [],\n                \"declaredType\": null,\n                \"statusCode\": 200\n            }\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 400\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				},
+				{
+					"name": "EnrollMember_Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"\",\r\n  \"rlhc_firstname\":\"Member_Enroll_14519\",\r\n  \"rlhc_lastname\":\"Extrenal_Member_Profile_14519\",\r\n  \"rlhc_name\":\"External_Member_Profile_1459\",\r\n  \"rlhc_dobdayofmonth\":\"03\",\r\n  \"rlhc_dobmonth\":\"04\",\r\n  \"rlhc_dobyear\":\"1988\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 10:01:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "There was some issue with Enroll Member API"
+				},
+				{
+					"name": "EnrollMember_Positive Flow",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"Nonactivated14519@example.com\",\r\n  \"rlhc_firstname\":\"Member_Enroll_14519\",\r\n  \"rlhc_lastname\":\"Extrenal_Member_Profile_14519\",\r\n  \"rlhc_name\":\"External_Member_Profile_1459\",\r\n  \"rlhc_dobdayofmonth\":\"03\",\r\n  \"rlhc_dobmonth\":\"04\",\r\n  \"rlhc_dobyear\":\"1988\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 09:57:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": {\n            \"statecode\": 0,\n            \"rlhc_donotallowsms\": false,\n            \"_rlhc_customerid_value\": \"75f4b2b2-2e76-e911-a838-000d3a178672\",\n            \"rlhc_lastname\": \"Extrenal_Member_Profile_14519\",\n            \"rlhc_firstname\": \"Member_Enroll_14519\",\n            \"rlhc_donotphone\": false,\n            \"rlhc_name\": \"External_Member_Profile_1459\",\n            \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"modifiedon\": \"2019-05-14T09:57:45Z\",\n            \"rlhc_donotpostalmail\": false,\n            \"versionnumber\": 6903377,\n            \"rlhc_cleansedemail\": \"Nonactivated14519@example.com\",\n            \"createdon\": \"2019-05-14T09:57:44Z\",\n            \"rlhc_donotsendmm\": false,\n            \"rlhc_cleansedfirstname\": \"Member_Enroll_14519\",\n            \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_donotemail\": false,\n            \"statuscode\": 1,\n            \"rlhc_externalprofileid\": \"72f4b2b2-2e76-e911-a838-000d3a178672\",\n            \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n            \"rlhc_cleansedlastname\": \"Extrenal_Member_Profile_14519\",\n            \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_email\": \"Nonactivated14519@example.com\",\n            \"rlhc_cleansedcountry\": null,\n            \"_createdonbehalfby_value\": null,\n            \"rlhc_importsource\": null,\n            \"rlhc_pmsnamecode\": null,\n            \"rlhc_stateorprovince\": null,\n            \"rlhc_jobtitle\": null,\n            \"rlhc_dobyear\": \"1988\",\n            \"rlhc_city\": null,\n            \"_modifiedonbehalfby_value\": null,\n            \"rlhc_pmsprofileid\": null,\n            \"rlhc_cleansedcity\": null,\n            \"rlhc_externalprofilenumber\": null,\n            \"overriddencreatedon\": null,\n            \"rlhc_vipcode\": null,\n            \"utcconversiontimezonecode\": null,\n            \"rlhc_dobmonth\": \"04\",\n            \"rlhc_zipcode\": null,\n            \"rlhc_freqflyernum\": null,\n            \"rlhc_middlename\": null,\n            \"rlhc_cleansedzipcode\": null,\n            \"rlhc_dobdayofmonth\": \"03\",\n            \"importsequencenumber\": null,\n            \"rlhc_arnumber\": null,\n            \"rlhc_address1\": null,\n            \"rlhc_primarylanguage\": null,\n            \"rlhc_cleansedstateorprovince\": null,\n            \"rlhc_familiarname\": null,\n            \"rlhc_sourceprofilenamecode\": null,\n            \"rlhc_cendynpropertyid\": null,\n            \"rlhc_companyname\": null,\n            \"rlhc_phonenumber\": null,\n            \"rlhc_address2\": null,\n            \"_owningteam_value\": null,\n            \"rlhc_cleansedaddress2\": null,\n            \"rlhc_vipid\": null,\n            \"rlhc_cleansedmiddlename\": null,\n            \"rlhc_profiletypeid\": null,\n            \"rlhc_resortid\": null,\n            \"rlhc_cleansedsalutation\": null,\n            \"rlhc_country\": null,\n            \"rlhc_profiletypecategory\": null,\n            \"rlhc_cleansedphonenumber\": null,\n            \"rlhc_sourceprofiletype\": null,\n            \"rlhc_cleansedaddress1\": null,\n            \"rlhc_externalprofilenumber2\": null,\n            \"rlhc_importsourceid\": null,\n            \"rlhc_profiletypecode\": null,\n            \"rlhc_salutation\": null,\n            \"rlhc_membershipnumber\": null,\n            \"timezoneruleversionnumber\": null\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		}
+	]
+}
