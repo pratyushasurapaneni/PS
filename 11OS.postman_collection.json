@@ -160,7 +160,7 @@
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);\r",
 							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-							"tests[\"Assertion-firstname is set for the profile\"] = ;\r",
+							"tests[\"Assertion-firstname is set for the profile\"] = jsonData[0]=== false;\r",
 							"console.log;"
 						],
 						"type": "text/javascript"
