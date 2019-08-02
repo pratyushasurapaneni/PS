@@ -1,0 +1,1567 @@
+{
+	"info": {
+		"name": "Sanity_suite",
+		"_postman_id": "f78a8dee-af35-7f86-c369-126ab8ba3a3b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EnrollMember",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"// random generator function",
+							"        function getRandomInt(min, max) {",
+							"        min = Math.ceil(min);",
+							"        max = Math.floor(max);",
+							"        return Math.floor(Math.random() * (max - min)) + min;",
+							"        }",
+							"// generate the random value",
+							"var myval = getRandomInt(1,9999);",
+							"// set the value into the global variable",
+							"postman.setGlobalVariable(\"value\",myval);",
+							"",
+							"// to see it in console",
+							"console.log(myval);",
+							"",
+							"postman.setGlobalVariable(\"rlhc_email\",\"Autotest\"+myval+\"@gmail.com\");",
+							"postman.setGlobalVariable(\"rlhc_firstname\",\"Autotest\"+myval);",
+							"postman.setGlobalVariable(\"rlhc_lastname\",\"Old\"+myval);",
+							"postman.setGlobalVariable(\"rlhc_dateofbirth\",\"10-13-1981\");",
+							"postman.setGlobalVariable(\"rlhc_address1\",+myval+\"El Dorado St\");",
+							"postman.setGlobalVariable(\"rlhc_address2\",\"Opp. Christan Mall\");",
+							"postman.setGlobalVariable(\"rlhc_city\",\"Fort Worth\");",
+							"postman.setGlobalVariable(\"rlhc_stateorprovince\",\"FL\");",
+							"postman.setGlobalVariable(\"rlhc_country\",\"US\");",
+							"postman.setGlobalVariable(\"rlhc_source\",\"Redlion\");",
+							"postman.setGlobalVariable(\"rlhc_subsource\",\"Expedia\");",
+							"postman.setGlobalVariable(\"rlhc_promotionalsignupcode\",\"RLH18\");",
+							"postman.setGlobalVariable(\"rlhc_zipcode\",myval);",
+							"postman.setGlobalVariable(\"rlhc_phonenumber\",+myval+\"768656\");",
+							"postman.setGlobalVariable(\"rlhc_donotallowsms\",\"true\");",
+							"postman.setGlobalVariable(\"rlhc_donotemail\",\"false\");",
+							"postman.setGlobalVariable(\"rlhc_donotpostalmail\",true);",
+							"postman.setGlobalVariable(\"rlhc_donotphone\",false);",
+							"postman.setGlobalVariable(\"rlhc_subscribetobra\",false);",
+							"postman.setGlobalVariable(\"rlhc_subscribetofra\",false);",
+							"postman.setGlobalVariable(\"rlhc_subscribetohot\",true);",
+							"postman.setGlobalVariable(\"rlhc_subscribetogrp\",false);",
+							"postman.setGlobalVariable(\"rlhc_subscribetoloy\",true);",
+							"postman.setGlobalVariable(\"rlhc_subscribetopno\",true);",
+							"console.log(data)"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rlhc_email\":\"{{rlhc_email}}\",\r\n  \"rlhc_firstname\":\"{{rlhc_firstname}}\",\r\n  \"rlhc_lastname\":\"{{rlhc_lastname}}\",\r\n  \"rlhc_dateofbirth\":\"{{rlhc_dateofbirth}}\",\r\n  \"rlhc_address1\":\"{{rlhc_address1}}\",\r\n  \"rlhc_address2\":\"{{rlhc_address2}}\",\r\n  \"rlhc_city\":\"{{rlhc_city}}\",\r\n  \"rlhc_stateorprovince\":\"{{rlhc_stateorprovince}}\",\r\n  \"rlhc_country\":\"{{rlhc_country}}\",\r\n  \"rlhc_source\":\"{{rlhc_source}}\",\r\n  \"rlhc_subsource\":\"{{rlhc_subsource}}\",\r\n \"rlhc_promotionalsignupcode\":\"{{rlhc_promotionalsignupcode}}\",\r\n  \"rlhc_zipcode\":\"{{rlhc_zipcode}}\",\r\n  \"rlhc_phonenumber\":\"{{rlhc_phonenumber}}\",\r\n  \"rlhc_donotallowsms\":\"{{rlhc_donotallowsms}}\",\r\n  \"rlhc_donotemail\":\"{{rlhc_donotemail}}\",\r\n  \"rlhc_donotpostalmail\":\"{{rlhc_donotpostalmail}}\",\r\n  \"rlhc_donotphone\":\"{{rlhc_donotpostalmail}}\",\r\n  \"rlhc_subscribetobra\":{{rlhc_subscribetobra}},\r\n  \"rlhc_subscribetofra\":{{rlhc_subscribetofra}},\r\n  \"rlhc_subscribetohot\":{{rlhc_subscribetohot}},\r\n  \"rlhc_subscribetogrp\":{{rlhc_subscribetogrp}},\r\n  \"rlhc_subscribetoloy\":{{rlhc_subscribetoloy}},\r\n  \"rlhc_subscribetopno\":{{rlhc_subscribetopno}}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/EnrollMember",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"EnrollMember"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "f17d1417-d4aa-463f-b76a-65078fdfcf87",
+					"name": "EnrollMember",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gendercode\": 2,\n    \"emailaddress1\": \"Test.CRMUSer123@example.com\",\n    \"haschildrencode\": 1,\n    \"exchangerate\": 1,\n    \"address1_composite\": \"249 Alexander Pl.\\r\\nRedmond, WA 86372\\r\\nU.S.\",\n    \"lastname\": \"CRMUSer\",\n    \"firstname\": \"Test\",\n    \"yomifullname\": \"Test CRMUser\",\n    \"donotemail\": false,\n    \"address2_shippingmethodcode\": 1,\n    \"fullname\": \"Test CRMUser\"\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Apr 2019 10:07:05 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"crmContactURI\": \"https://rlhcloyalty.crm.dynamics.com/api/data/v8.2/contacts(5ca7755c-e664-e911-a846-000d3a178db2)\",\n    \"oktaResponse\": {\n        \"id\": \"00ukfx9sd8h8WZnPO0h7\",\n        \"status\": \"STAGED\",\n        \"created\": \"2019-04-22T10:07:04Z\",\n        \"activated\": null,\n        \"statusChanged\": null,\n        \"lastLogin\": null,\n        \"lastUpdated\": \"2019-04-22T10:07:04Z\",\n        \"passwordChanged\": null,\n        \"profile\": {\n            \"firstName\": \"Test\",\n            \"lastName\": \"CRMUSer\",\n            \"nickName\": null,\n            \"displayName\": \"Test CRMUser\",\n            \"countryCode\": null,\n            \"streetAddress\": null,\n            \"postalAddress\": null,\n            \"city\": null,\n            \"state\": null,\n            \"zipCode\": null,\n            \"birthday\": null,\n            \"email\": \"Test.CRMUSer123@example.com\",\n            \"secondEmail\": null,\n            \"profileUrl\": null,\n            \"preferredLanguage\": null,\n            \"login\": \"Test.CRMUSer123@example.com\",\n            \"mobilePhone\": null,\n            \"gender\": null,\n            \"member_type\": null,\n            \"allowSMS\": null,\n            \"doNotEmail\": \"False\",\n            \"doNotCall\": null\n        },\n        \"credentials\": {\n            \"password\": null,\n            \"recovery_question\": null,\n            \"provider\": {\n                \"type\": \"OKTA\",\n                \"name\": \"OKTA\"\n            }\n        },\n        \"_links\": {\n            \"activate\": {\n                \"href\": \"https://rlhloyalty.oktapreview.com/api/v1/users/00ukfx9sd8h8WZnPO0h7/lifecycle/activate\"\n            },\n            \"suspend\": null,\n            \"resetPassword\": null,\n            \"forgotPassword\": null,\n            \"expirePassword\": null,\n            \"changeRecoveryQuestion\": null,\n            \"self\": {\n                \"href\": \"https://rlhloyalty.oktapreview.com/api/v1/users/00ukfx9sd8h8WZnPO0h7\"\n            },\n            \"changePassword\": null,\n            \"deactivate\": null\n        }\n    }\n}"
+				},
+				{
+					"id": "a9c18221-7ba4-4c7a-92f3-c8c689e2e4cc",
+					"name": "EnrollMember_ Invalid Email Format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gendercode\": 2,\n    \"emailaddress1\": \"Pratyusha.Surapanenirlhc2\",\n    \"haschildrencode\": 1,\n    \"exchangerate\": 1,\n    \"address1_composite\": \"249 Alexander Pl.\\r\\nRedmond, WA 86372\\r\\nU.S.\",\n    \"lastname\": \"Pratyusha\",\n    \"firstname\": \"Member_Enroll\",\n    \"yomifullname\": \"Pratyusha MEmber Enroll Test\",\n    \"donotemail\": false,\n    \"address2_shippingmethodcode\": 1,\n    \"fullname\": \"Pratyusha MemberEnroll Test 06/05/19\"\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 May 2019 09:43:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": \"https://rlhcloyalty.crm.dynamics.com/api/data/v8.2/contacts(893bed55-e36f-e911-a838-000d3a178672)\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				},
+				{
+					"id": "e112d5a5-9163-4fa0-8829-46a9fd574ec1",
+					"name": "EnrollMember_Modified",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rlhc_email\": \"Nonactivated01@example.com\",\r\n  \"rlhc_firstname\":\"Redlion_First_01\",\r\n  \"rlhc_lastname\":\"Extrenal_Profile_01\",\r\n  \"rlhc_name\":\"External_Profile_01\",\r\n  \"rlhc_dobdayofmonth\":\"01\",\r\n  \"rlhc_dobmonth\":\"01\",\r\n  \"rlhc_dobyear\":\"2019\" \r\n}"
+						},
+						"url": {
+							"raw": "{{url-dev}}/EnrollMember",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 11:03:19 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": {\n            \"statecode\": 0,\n            \"rlhc_donotallowsms\": false,\n            \"_rlhc_customerid_value\": \"4724badd-3776-e911-a838-000d3a178672\",\n            \"rlhc_lastname\": \"Extrenal_Profile_01\",\n            \"rlhc_firstname\": \"Redlion_First_01\",\n            \"rlhc_donotphone\": false,\n            \"rlhc_name\": \"External_Profile_01\",\n            \"_ownerid_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"modifiedon\": \"2019-05-14T11:03:18Z\",\n            \"rlhc_donotpostalmail\": false,\n            \"versionnumber\": 7248476,\n            \"rlhc_cleansedemail\": \"Nonactivated01@example.com\",\n            \"createdon\": \"2019-05-14T11:03:18Z\",\n            \"rlhc_donotsendmm\": false,\n            \"rlhc_cleansedfirstname\": \"Redlion_First_01\",\n            \"_modifiedby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_donotemail\": false,\n            \"statuscode\": 1,\n            \"rlhc_externalprofileid\": \"4624badd-3776-e911-a838-000d3a178672\",\n            \"_createdby_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"_owningbusinessunit_value\": \"eb907841-2b30-e911-a95e-000d3a4e898a\",\n            \"rlhc_cleansedlastname\": \"Extrenal_Profile_01\",\n            \"_owninguser_value\": \"128d9eec-ba4e-e911-a841-000d3a178fc7\",\n            \"rlhc_email\": \"Nonactivated01@example.com\",\n            \"rlhc_cleansedcountry\": null,\n            \"_createdonbehalfby_value\": null,\n            \"rlhc_importsource\": null,\n            \"rlhc_pmsnamecode\": null,\n            \"rlhc_stateorprovince\": null,\n            \"rlhc_jobtitle\": null,\n            \"rlhc_dobyear\": \"2019\",\n            \"rlhc_city\": null,\n            \"_modifiedonbehalfby_value\": null,\n            \"rlhc_pmsprofileid\": null,\n            \"rlhc_cleansedcity\": null,\n            \"rlhc_externalprofilenumber\": null,\n            \"overriddencreatedon\": null,\n            \"rlhc_vipcode\": null,\n            \"utcconversiontimezonecode\": null,\n            \"rlhc_dobmonth\": \"01\",\n            \"rlhc_zipcode\": null,\n            \"rlhc_freqflyernum\": null,\n            \"rlhc_middlename\": null,\n            \"rlhc_cleansedzipcode\": null,\n            \"rlhc_dobdayofmonth\": \"01\",\n            \"importsequencenumber\": null,\n            \"rlhc_arnumber\": null,\n            \"rlhc_address1\": null,\n            \"rlhc_primarylanguage\": null,\n            \"rlhc_cleansedstateorprovince\": null,\n            \"rlhc_familiarname\": null,\n            \"rlhc_sourceprofilenamecode\": null,\n            \"rlhc_cendynpropertyid\": null,\n            \"rlhc_companyname\": null,\n            \"rlhc_phonenumber\": null,\n            \"rlhc_address2\": null,\n            \"_owningteam_value\": null,\n            \"rlhc_cleansedaddress2\": null,\n            \"rlhc_vipid\": null,\n            \"rlhc_cleansedmiddlename\": null,\n            \"rlhc_profiletypeid\": null,\n            \"rlhc_resortid\": null,\n            \"rlhc_cleansedsalutation\": null,\n            \"rlhc_country\": null,\n            \"rlhc_profiletypecategory\": null,\n            \"rlhc_cleansedphonenumber\": null,\n            \"rlhc_sourceprofiletype\": null,\n            \"rlhc_cleansedaddress1\": null,\n            \"rlhc_externalprofilenumber2\": null,\n            \"rlhc_importsourceid\": null,\n            \"rlhc_profiletypecode\": null,\n            \"rlhc_salutation\": null,\n            \"rlhc_membershipnumber\": null,\n            \"timezoneruleversionnumber\": null\n        },\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    },\n    {\n        \"value\": \"{\\\"MessagePushedToQueue\\\":true}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				},
+				{
+					"id": "b166bb7d-9f04-42ee-84ad-a9feac932bdd",
+					"name": "EnrollMember-ErrorMessage",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gendercode\": 2,\n    \"emailaddress1\": \"Test.CRMUSer@example.com\",\n    \"haschildrencode\": 1,\n    \"exchangerate\": 1,\n    \"address1_composite\": \"249 Alexander Pl.\\r\\nRedmond, WA 86372\\r\\nU.S.\",\n    \"lastname\": \"CRMUSer\",\n    \"firstname\": \"Test\",\n    \"yomifullname\": \"Test CRMUser\",\n    \"donotemail\": false,\n    \"address2_shippingmethodcode\": 1,\n    \"fullname\": \"Test CRMUser\"\n}"
+						},
+						"url": {
+							"raw": "https://rlh-orchestration-api-management-dev.azure-api.net/api/orchestration/EnrollMember",
+							"protocol": "https",
+							"host": [
+								"rlh-orchestration-api-management-dev",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"api",
+								"orchestration",
+								"EnrollMember"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=cb545079065329a076f9a941920a00de9e56911d055bb50e1c6b74aa72552b45;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Apr 2019 14:26:17 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Error\": \"There was some issue with Okta API\",\n    \"Message\": {\n        \"Content\": \"{\\\"errorCode\\\":\\\"E0000001\\\",\\\"errorSummary\\\":\\\"Api validation failed: login\\\",\\\"errorLink\\\":\\\"E0000001\\\",\\\"errorId\\\":\\\"oaeO0d-7VIGRh2r923z5HUVEQ\\\",\\\"errorCauses\\\":[{\\\"errorSummary\\\":\\\"login: An object with this field already exists in the current organization\\\"}]}\",\n        \"ContentType\": \"application/json\",\n        \"StatusCode\": null\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Contact Fetch by email Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"console.log(jsonData);",
+							"//Setting Global Variables",
+							"postman.setGlobalVariable(\"contactid\", jsonData[0].value[0].contactid);",
+							"postman.setGlobalVariable(\"rlhc_oktaid\", jsonData[0].value[0].rlhc_oktaid);",
+							"postman.setGlobalVariable(\"rlhc_myCheckid\", jsonData[0].value[0].rlhc_mycheckid);",
+							"postman.setGlobalVariable(\"rlhc_mycheckbalance\", jsonData[0].value[0].rlhc_mycheckbalance);",
+							"postman.setGlobalVariable(\"rlhc_membernumber\", jsonData[0].value[0].rlhc_membernumber);",
+							"",
+							"//test Availability",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Email Address is available\"] = responseBody.has(\"emailaddress1\");",
+							"tests[\"First Name is available\"] = responseBody.has(\"firstname\");",
+							"tests[\"Last Name is available\"] = responseBody.has(\"lastname\");",
+							"tests[\"Contact id is available\"] = jsonData[0].value[0].contactid !== null;",
+							"tests[\"MyCheck id is available\"] = jsonData[0].value[0].rlhc_mycheckid !== null;",
+							"tests[\"MyCheck Balance is available\"] = jsonData[0].value[0].rlhc_mycheckbalance !== null;",
+							"tests[\"Membernumber is available\"] = jsonData[0].value[0].rlhc_membernumber !== null;",
+							"",
+							"//assertions",
+							"tests[\"Assertion-firstname is set for the contact in CRM\"] = jsonData[0].value[0].firstname === postman.getGlobalVariable(\"rlhc_firstname\");",
+							"tests[\"Assertion-lastname is set for the contact in CRM\"] = jsonData[0].value[0].lastname === postman.getGlobalVariable(\"rlhc_lastname\");",
+							"tests[\"Assertion-email is set for the contact in CRM\"] = jsonData[0].value[0].emailaddress1 === postman.getGlobalVariable(\"rlhc_email\");",
+							"tests[\"Assertion-okta id is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_oktaid === postman.getGlobalVariable(\"rlhc_oktaid\");",
+							"tests[\"Assertion-contact id is set for the contact in CRM\"] = jsonData[0].value[0].contactid === postman.getGlobalVariable(\"contactid\");",
+							"tests[\"Assertion-Member number is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_membernumber === postman.getGlobalVariable(\"rlhc_membernumber\");",
+							"tests[\"Assertion-My Check balance is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_mycheckbalance === postman.getGlobalVariable(\"rlhc_mycheckbalance\");",
+							"tests[\"Assertion-Address Line 1 is set for the contact in CRM\"] = jsonData[0].value[0].address1_line1 === postman.getGlobalVariable(\"rlhc_address1\");",
+							"tests[\"Assertion-Address Line 2 is set for the contact in CRM\"] = jsonData[0].value[0].address1_line2 === postman.getGlobalVariable(\"rlhc_address2\");",
+							"tests[\"Assertion-City is set for the contact in CRM\"] = jsonData[0].value[0].address1_city === postman.getGlobalVariable(\"rlhc_city\");",
+							"tests[\"Assertion-State is set for the contact in CRM\"] = jsonData[0].value[0].address1_stateorprovince === postman.getGlobalVariable(\"rlhc_stateorprovince\");",
+							"tests[\"Assertion-Country is set for the contact in CRM\"] = jsonData[0].value[0].address1_country === postman.getGlobalVariable(\"rlhc_country\");",
+							"tests[\"Assertion-Zipcode is set for the contact in CRM\"] = jsonData[0].value[0].address1_postalcode === postman.getGlobalVariable(\"rlhc_zipcode\");",
+							"tests[\"Assertion-mobile is set for the contact in CRM\"] = jsonData[0].value[0].mobilephone === postman.getGlobalVariable(\"rlhc_phonenumber\");",
+							"//tests[\"Assertion-donotallowsms is set for the contact in CRM\"] == pm.expect(JSON.stringify(jsonData[0].value[0].rlhc_donotsendsms)).to.eql(postman.getGlobalVariable(\"rlhc_donotallowsms\"));",
+							"tests[\"Assertion-donotEmail is set for the contact in CRM\"] = pm.expect(JSON.stringify(jsonData[0].value[0].donotemail)).to.eql(postman.getGlobalVariable(\"rlhc_donotemail\"));",
+							"",
+							"/*tests[\"Assertion-Do not postall mail is set for the contact in CRM\"] = pm.expect(JSON.toString(jsonData[0].value[0].donotpostalmail)).to.eq(postman.getGlobalVariable(\"rlhc_donotpostalmail\"));",
+							"tests[\"Assertion-donotphone is set for the contact in CRM\"] = pm.expect(JSON.toString(jsonData[0].value[0].donotphone)).to.eq(postman.getGlobalVariable(\"rlhc_donotphone\"));*/",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ContactFetch?emailaddress1={{rlhc_email}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ContactFetch"
+					],
+					"query": [
+						{
+							"key": "emailaddress1",
+							"value": "{{rlhc_email}}",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ContactFetch-valid-emailAddress-lastname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Email Address is available\"] = responseBody.has(\"rlhc_email\") !== null;",
+							"tests[\"First Name is available\"] = responseBody.has(\"firstname\") !== null;",
+							"tests[\"Last Name is available\"] = responseBody.has(\"lastname\") !== null;",
+							"tests[\"Last Name is available\"] = responseBody.has(\"mobilephone\") !== null;",
+							"tests[\"Contactid is available\"] = responseBody.has(\"contactid\") !== null;",
+							"tests[\"Okta ID is available\"] = responseBody.has(\"rlhc_oktaid\") !== null;",
+							"tests[\"Okta ID is not null\"] = jsonData.rlhc_oktaid !== null;",
+							"tests[\"MyCheck ID is available\"] = responseBody.has(\"rlhc_mycheckid\") !== null;",
+							"tests[\"MyCheck balance is available\"] = responseBody.has(\"rlhc_mycheckbalance\") !== null;",
+							"tests[\"Member number is available\"] = responseBody.has(\"rlhc_membernumber\") !== null;",
+							"tests[\"Assertion-firstname is set for the contact in CRM\"] = jsonData[0].value[0].firstname === postman.getGlobalVariable(\"rlhc_firstname\");",
+							"tests[\"Assertion-lastname is set for the contact in CRM\"] = jsonData[0].value[0].lastname === postman.getGlobalVariable(\"rlhc_lastname\");",
+							"tests[\"Assertion-email is set for the contact in CRM\"] = jsonData[0].value[0].emailaddress1 === postman.getGlobalVariable(\"rlhc_email\");",
+							"tests[\"Assertion-okta id is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_oktaid === postman.getGlobalVariable(\"rlhc_oktaid\");",
+							"tests[\"Assertion-contact id is set for the contact in CRM\"] = jsonData[0].value[0].contactid === postman.getGlobalVariable(\"contactid\");",
+							"tests[\"Assertion-Member number is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_membernumber === postman.getGlobalVariable(\"rlhc_membernumber\");",
+							"tests[\"Assertion-My Check balance is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_mycheckbalance === postman.getGlobalVariable(\"rlhc_mycheckbalance\");",
+							"console.log(data);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ContactFetch?emailaddress1={{rlhc_email}}&lastname={{rlhc_lastname}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ContactFetch"
+					],
+					"query": [
+						{
+							"key": "emailaddress1",
+							"value": "{{rlhc_email}}",
+							"equals": true
+						},
+						{
+							"key": "lastname",
+							"value": "{{rlhc_lastname}}",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateContact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"updated contact successfully\"] = responseBody.has(\"contacts\") !== null;",
+							"/*tests[\"Assertion-firstname is set for the profile in CRM\"] = jsonData[0].value[0].firstname == postman.getGlobalvariable(\"rlhc_firstname\");*/",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable(\"rlhc_gender\",\"1\");",
+							"/*postman.setGlobalVariable(\"rlhc_dateofbirth\",\"12-01-1987\");",
+							"postman.setGlobalVariable(\"rlhc_phonenumber\",\"9867321234\");*/",
+							"/*postman.setGlobalVariable(\"rlhc_address1\",\"7426 El Dorado St\");",
+							"postman.setGlobalVariable(\"rlhc_address2\",\"Opp. Christan Mall\");",
+							"postman.setGlobalVariable(\"rlhc_city\",\"Fort Worth\");",
+							"postman.setGlobalVariable(\"rlhc_stateorprovince\",\"TX\");",
+							"postman.setGlobalVariable(\"rlhc_country\",\"US\");*/"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rlhc_email\":\"{{rlhc_email}}\",\r\n  \"rlhc_firstname\":\"{{rlhc_firstname}}\",\r\n  \"rlhc_lastname\":\"{{rlhc_lastname}}\",\r\n  \"rlhc_dateofbirth\":\"{{rlhc_dateofbirth}}\",\r\n  \"rlhc_address1\":\"{{rlhc_address1}}\",\r\n  \"rlhc_address2\":\"{{rlhc_address2}}\",\r\n  \"rlhc_city\":\"{{rlhc_city}}\",\r\n  \"rlhc_state\":\"{{rlhc_stateorprovince}}\",\r\n  \"rlhc_country\":\"{{rlhc_country}}\",\r\n  \"rlhc_zipcode\":\"{{rlhc_zipcode}}\",\r\n  \"rlhc_phonenumber\":\"{{rlhc_phonenumber}}\",\r\n  \"rlhc_donotallowsms\":\"{{rlhc_donotallowsms}}\",\r\n  \"rlhc_donotemail\":\"{{rlhc_donotemail}}\",\r\n  \"rlhc_donotpostalmail\":\"{{rlhc_donotpostalmail}}\",\r\n  \"rlhc_donotphone\":\"{{rlhc_donotpostalmail}}\",\r\n  \"rlhc_gender\":\"{{rlhc_gender}}\",\r\n   \"rlhc_subscribetobra\":{{rlhc_subscribetobra}},\r\n  \"rlhc_subscribetofra\":{{rlhc_subscribetofra}},\r\n  \"rlhc_subscribetohot\":{{rlhc_subscribetohot}},\r\n  \"rlhc_subscribetogrp\":{{rlhc_subscribetogrp}},\r\n  \"rlhc_subscribetoloy\":{{rlhc_subscribetoloy}},\r\n  \"rlhc_subscribetopno\":{{rlhc_subscribetopno}},\r\n  \"rlhc_oktaid\":\"{{rlhc_oktaid}}\",\r\n  \"contactId\":\"\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/UpdateContact",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"UpdateContact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ContactFetch-web-valid-oktaid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Email Address is available\"] = responseBody.has(\"email\") !== null;",
+							"tests[\"First Name is available\"] = responseBody.has(\"first_name\") !== null;",
+							"tests[\"Last Name is available\"] = responseBody.has(\"last_name\") !== null;",
+							"tests[\"Address1 is available\"] = responseBody.has(\"address1\") !== null;",
+							"tests[\"Address2 is available\"] = responseBody.has(\"address2\") !== null;",
+							"tests[\"City is available\"] = responseBody.has(\"city\") !== null;",
+							"tests[\"State is available\"] = responseBody.has(\"state\") !== null;",
+							"tests[\"Zip code is available\"] = responseBody.has(\"zip\") !== null;",
+							"tests[\"Country Code is available\"] = responseBody.has(\"country-code\") !== null;",
+							"tests[\"Date of birth is available\"] = responseBody.has(\"date_of_birth\") !== null;",
+							"tests[\"Gender is available\"] = responseBody.has(\"gender\") !== null;",
+							"tests[\"Phone is available\"] = responseBody.has(\"Phone\") !== null;",
+							"tests[\"MembershipNumber is available\"] = responseBody.has(\"membershipnumber\") !== null;",
+							"tests[\"hellobucks is available\"] = responseBody.has(\"hellobucks\") !== null;",
+							"tests[\"Subscription is available\"] = responseBody.has(\"subscriptions\") !== null;",
+							"tests[\"Reservations is available\"] = responseBody.has(\"reservations\") !== null;",
+							"tests[\"Stays are available\"] = responseBody.has(\"stays\") !== null;",
+							"tests[\"Perks are available\"] = responseBody.has(\"perks\") !== null;",
+							"tests[\"Bucks are available\"] = responseBody.has(\"bucks\") !== null;",
+							"tests[\"Survey are available\"] = responseBody.has(\"survey\") !== null;",
+							"",
+							"//Assertions",
+							"",
+							"tests[\"Assertion-email is set for the contact in CRM\"] = jsonData.value[0].email === postman.getGlobalVariable(\"rlhc_email\");",
+							"tests[\"Assertion-firstname is set for the contact in CRM\"] = jsonData.value[0].first_name === postman.getGlobalVariable(\"rlhc_firstname\");",
+							"tests[\"Assertion-lastname is set for the contact in CRM\"] = jsonData.value[0].last_name === postman.getGlobalVariable(\"rlhc_lastname\");",
+							"tests[\"Assertion-address1 is set for the contact in CRM\"] = jsonData.value[0].address1 === postman.getGlobalVariable(\"rlhc_address1\");",
+							"tests[\"Assertion-address is set for the contact in CRM\"] = jsonData.value[0].address2 === postman.getGlobalVariable(\"rlhc_address2\");",
+							"tests[\"Assertion-city is set for the contact in CRM\"] = jsonData.value[0].city === postman.getGlobalVariable(\"rlhc_city\");",
+							"tests[\"Assertion-zip is set for the contact in CRM\"] = jsonData.value[0].zip === postman.getGlobalVariable(\"rlhc_zipcode\");",
+							"tests[\"Assertion-Date of birth is set for the contact in CRM\"] = jsonData.value[0].date_of_birth === postman.getGlobalVariable(\"rlhc_dateofbirth\");",
+							"tests[\"Assertion-Gender is set for the contact in CRM\"] = jsonData.value[0].gender === postman.getGlobalVariable(\"rlhc_gender\");",
+							"tests[\"Assertion-Phone is set for the contact in CRM\"] = jsonData.value[0].phone === postman.getGlobalVariable(\"rlhc_phonenumber\");",
+							"tests[\"Assertion-Membership Number is set for the contact in CRM\"] = jsonData.value[0].membershipnumber === postman.getGlobalVariable(\"rlhc_membernumber\");",
+							"tests[\"Assertion-Gender is set for the contact in CRM\"] = jsonData.value[0].gender === postman.getGlobalVariable(\"rlhc_gender\");",
+							"console.log(data);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/FetchContactByOktaid/{{rlhc_oktaid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"FetchContactByOktaid",
+						"{{rlhc_oktaid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11OS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Reponse body has 'true'\"] = responseBody.has(\"true\");",
+							"console.log(data);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/CheckMember/{{rlhc_email}}/{{rlhc_lastname}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"CheckMember",
+						"{{rlhc_email}}",
+						"{{rlhc_lastname}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "aee2a10c-bd3b-4d09-aafa-a718d5fbf23d",
+					"name": "11OS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "dc40e8175a9b4eb0a05c1b300fb72544",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url-dev}}/CheckMember/Nonactivated01@example.com/Extrenal_Profile_01",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"CheckMember",
+								"Nonactivated01@example.com",
+								"Extrenal_Profile_01"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "ARRAffinity=e3650a0643a6a582bc1dfe697750d320b8551f76eb66981f12b97b80644750bb;Path=/;HttpOnly;Domain=rlh-orchestration-api-dev.azurewebsites.net"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 May 2019 11:12:14 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    true\n]"
+				}
+			]
+		},
+		{
+			"name": "Profile by PhoneNumber-Blue IP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Email Address is available\"] = responseBody.has(\"email\") !== null;",
+							"tests[\"First Name is available\"] = responseBody.has(\"first_name\") !== null;",
+							"tests[\"Last Name is available\"] = responseBody.has(\"last_name\") !== null;",
+							"tests[\"Address1 is available\"] = responseBody.has(\"address1\") !== null;",
+							"tests[\"Address2 is available\"] = responseBody.has(\"address2\") !== null;",
+							"tests[\"City is available\"] = responseBody.has(\"city\") !== null;",
+							"tests[\"State is available\"] = responseBody.has(\"state\") !== null;",
+							"tests[\"Zip code is available\"] = responseBody.has(\"zip\") !== null;",
+							"tests[\"Country Code is available\"] = responseBody.has(\"country-code\") !== null;",
+							"tests[\"Date of birth is available\"] = responseBody.has(\"date_of_birth\") !== null;",
+							"tests[\"Gender is available\"] = responseBody.has(\"gender\") !== null;",
+							"tests[\"Phone is available\"] = responseBody.has(\"Phone\") !== null;",
+							"tests[\"MembershipNumber is available\"] = responseBody.has(\"membershipnumber\") !== null;",
+							"tests[\"hellobucks is available\"] = responseBody.has(\"hellobucks\") !== null;",
+							"tests[\"Subscription is available\"] = responseBody.has(\"subscriptions\") !== null;",
+							"tests[\"Reservations is available\"] = responseBody.has(\"reservations\") !== null;",
+							"tests[\"Stays are available\"] = responseBody.has(\"stays\") !== null;",
+							"tests[\"Perks are available\"] = responseBody.has(\"perks\") !== null;",
+							"tests[\"Bucks are available\"] = responseBody.has(\"bucks\") !== null;",
+							"tests[\"Survey are available\"] = responseBody.has(\"survey\") !== null;",
+							"",
+							"//Assertions",
+							"",
+							"tests[\"Assertion-email is set for the contact in CRM\"] = jsonData.value.profileDetails[0].email === postman.getGlobalVariable(\"rlhc_email\");",
+							"tests[\"Assertion-firstname is set for the contact in CRM\"] = jsonData.value.profileDetails[0].first_name === postman.getGlobalVariable(\"rlhc_firstname\");",
+							"tests[\"Assertion-lastname is set for the contact in CRM\"] = jsonData.value.profileDetails[0].last_name === postman.getGlobalVariable(\"rlhc_lastname\");",
+							"tests[\"Assertion-address1 is set for the contact in CRM\"] = jsonData.value.profileDetails[0].address1 === postman.getGlobalVariable(\"rlhc_address1\");",
+							"tests[\"Assertion-address is set for the contact in CRM\"] = jsonData.value.profileDetails[0].address2 === postman.getGlobalVariable(\"rlhc_address2\");",
+							"tests[\"Assertion-city is set for the contact in CRM\"] = jsonData.value.profileDetails[0].city === postman.getGlobalVariable(\"rlhc_city\");",
+							"tests[\"Assertion-zip is set for the contact in CRM\"] = jsonData.value.profileDetails[0].zip === postman.getGlobalVariable(\"rlhc_zipcode\");",
+							"tests[\"Assertion-Date of birth is set for the contact in CRM\"] = jsonData.value.profileDetails[0].date_of_birth === postman.getGlobalVariable(\"rlhc_dateofbirth\");",
+							"tests[\"Assertion-Gender is set for the contact in CRM\"] = jsonData.value.profileDetails[0].gender === postman.getGlobalVariable(\"rlhc_gender\");",
+							"tests[\"Assertion-Phone is set for the contact in CRM\"] = jsonData.value.profileDetails[0].phone === postman.getGlobalVariable(\"rlhc_phonenumber\");",
+							"tests[\"Assertion-Membership Number is set for the contact in CRM\"] = jsonData.value.profileDetails[0].membershipnumber === postman.getGlobalVariable(\"rlhc_membernumber\");",
+							"tests[\"Assertion-Gender is set for the contact in CRM\"] = jsonData.value.profileDetails[0].gender === postman.getGlobalVariable(\"rlhc_gender\");",
+							"console.log(data);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": ""
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/FetchContactByPhone?mobileNumber={{rlhc_phonenumber}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"FetchContactByPhone"
+					],
+					"query": [
+						{
+							"key": "mobileNumber",
+							"value": "{{rlhc_phonenumber}}",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResetPassword-OKTA Id when False",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"tests[\"Reset url is available\"] = responseBody.has(\"resetPasswordUrl\");\r",
+							"console.log(data);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ResetPassword?userid={{rlhc_oktaid}}&sendEmail=false",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ResetPassword"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "{{rlhc_oktaid}}",
+							"equals": true
+						},
+						{
+							"key": "sendEmail",
+							"value": "false",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "10f407e9-e77f-4eef-85c7-353bd05cf591",
+					"name": "ResetPassword-Okta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url-dev}}/ResetPassword/00ukz20zwfQfkJO9q0h7?sendEmail=true",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"ResetPassword",
+								"00ukz20zwfQfkJO9q0h7"
+							],
+							"query": [
+								{
+									"key": "sendEmail",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2019 11:43:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": \"{}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ResetPassword-OKTA Id when True",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ResetPassword?userid={{rlhc_oktaid}}&sendEmail=true",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ResetPassword"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "{{rlhc_oktaid}}",
+							"equals": true
+						},
+						{
+							"key": "sendEmail",
+							"value": "true",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7d023c0c-70bf-4023-8afa-b8ece521e42e",
+					"name": "ResetPassword-Okta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url-dev}}/ResetPassword/00ukz20zwfQfkJO9q0h7?sendEmail=true",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"ResetPassword",
+								"00ukz20zwfQfkJO9q0h7"
+							],
+							"query": [
+								{
+									"key": "sendEmail",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2019 11:43:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": \"{}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ResetPassword-Email When True",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ResetPassword?userId={{rlhc_email}}&sendEmail=true",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ResetPassword"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{rlhc_email}}",
+							"equals": true
+						},
+						{
+							"key": "sendEmail",
+							"value": "true",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ee8b922c-1ed0-492c-b1e0-8524da07fddd",
+					"name": "ResetPassword-Okta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url-dev}}/ResetPassword/00ukz20zwfQfkJO9q0h7?sendEmail=true",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"ResetPassword",
+								"00ukz20zwfQfkJO9q0h7"
+							],
+							"query": [
+								{
+									"key": "sendEmail",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2019 11:43:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": \"{}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ResetPassword-Email When False",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"tests[\"Reset url is available\"] = responseBody.has(\"resetPasswordUrl\");\r",
+							"console.log(data);\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ResetPassword?userId={{rlhc_email}}&sendEmail=false",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ResetPassword"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{rlhc_email}}",
+							"equals": true
+						},
+						{
+							"key": "sendEmail",
+							"value": "false",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "c0377590-ee29-4b30-b5f7-e507360ff2e7",
+					"name": "ResetPassword-Okta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{Subscription-Key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url-dev}}/ResetPassword/00ukz20zwfQfkJO9q0h7?sendEmail=true",
+							"host": [
+								"{{url-dev}}"
+							],
+							"path": [
+								"ResetPassword",
+								"00ukz20zwfQfkJO9q0h7"
+							],
+							"query": [
+								{
+									"key": "sendEmail",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=2592000"
+						},
+						{
+							"key": "Arr-Disable-Session-Affinity",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2019 11:43:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"value\": \"{}\",\n        \"formatters\": [],\n        \"contentTypes\": [],\n        \"declaredType\": null,\n        \"statusCode\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ApplyHelloBucks-MyCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Subscription-Key}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ApplyHelloBucks?amount=10&user_id={{rlhc_myCheckid}}&expiration_date=2019-12-01",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ApplyHelloBucks"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "10",
+							"equals": true
+						},
+						{
+							"key": "user_id",
+							"value": "{{rlhc_myCheckid}}",
+							"equals": true
+						},
+						{
+							"key": "expiration_date",
+							"value": "2019-12-01",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ContactFetch-valid-emailAddress-firstname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Email Address is available\"] = responseBody.has(\"rlhc_email\") !== null;",
+							"tests[\"First Name is available\"] = responseBody.has(\"firstname\") !== null;",
+							"tests[\"Last Name is available\"] = responseBody.has(\"lastname\") !== null;",
+							"tests[\"Last Name is available\"] = responseBody.has(\"mobilephone\") !== null;",
+							"tests[\"Contactid is available\"] = responseBody.has(\"contactid\") !== null;",
+							"tests[\"Okta ID is available\"] = responseBody.has(\"rlhc_oktaid\") !== null;",
+							"tests[\"Okta ID is not null\"] = jsonData.rlhc_oktaid !== null;",
+							"tests[\"MyCheck ID is available\"] = responseBody.has(\"rlhc_mycheckid\") !== null;",
+							"tests[\"MyCheck balance is available\"] = responseBody.has(\"rlhc_mycheckbalance\") !== null;",
+							"tests[\"Member number is available\"] = responseBody.has(\"rlhc_membernumber\") !== null;",
+							"tests[\"Assertion-firstname is set for the contact in CRM\"] = jsonData[0].value[0].firstname === postman.getGlobalVariable(\"rlhc_firstname\");",
+							"tests[\"Assertion-lastname is set for the contact in CRM\"] = jsonData[0].value[0].lastname === postman.getGlobalVariable(\"rlhc_lastname\");",
+							"tests[\"Assertion-email is set for the contact in CRM\"] = jsonData[0].value[0].emailaddress1 === postman.getGlobalVariable(\"rlhc_email\");",
+							"tests[\"Assertion-okta id is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_oktaid === postman.getGlobalVariable(\"rlhc_oktaid\");",
+							"tests[\"Assertion-contact id is set for the contact in CRM\"] = jsonData[0].value[0].contactid === postman.getGlobalVariable(\"contactid\");",
+							"tests[\"Assertion-Member number is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_membernumber === postman.getGlobalVariable(\"rlhc_membernumber\");",
+							"/*tests[\"Assertion-My Check balance is set for the contact in CRM\"] = jsonData[0].value[0].rlhc_mycheckbalance === postman.getGlobalVariable(\"rlhc_mycheckbalance\");*/",
+							"console.log(data);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "dc40e8175a9b4eb0a05c1b300fb72544"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/ContactFetch?emailaddress1={{rlhc_email}}&firstname={{rlhc_firstname}}&lastname={{rlhc_lastname}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ContactFetch"
+					],
+					"query": [
+						{
+							"key": "emailaddress1",
+							"value": "{{rlhc_email}}",
+							"equals": true
+						},
+						{
+							"key": "firstname",
+							"value": "{{rlhc_firstname}}",
+							"equals": true
+						},
+						{
+							"key": "lastname",
+							"value": "{{rlhc_lastname}}",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
